@@ -9,6 +9,13 @@
         ui:WindowHelper.UseModernWindowStyle="True"
     Title="WritePad" Height="450" Width="800" BorderBrush="#007ACC">
     <Grid>
-        <avalonedit:TextEditor x:Name="Editor" FontFamily="Consolas" FontSize="13" Foreground="#E6E6E6" Background="#1E1E1E" ShowLineNumbers="True"></avalonedit:TextEditor>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <avalonedit:TextEditor x:Name="Editor" FontFamily="Consolas" FontSize="13" Foreground="#E6E6E6" Background="#1E1E1E" ShowLineNumbers="True" Grid.Row="0"></avalonedit:TextEditor>
+        <StatusBar Background="#007ACC" Foreground="White" Grid.Row="1">
+            <TextBlock x:Name="TextBlockStatus" Text="" TextWrapping="NoWrap"></TextBlock>
+        </StatusBar>
     </Grid>
 </Window>
