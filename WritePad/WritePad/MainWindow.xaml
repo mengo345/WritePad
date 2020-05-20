@@ -7,15 +7,20 @@
         mc:Ignorable="d" xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         ui:TitleBar.Background="#1B1B1B"
         ui:WindowHelper.UseModernWindowStyle="True"
+        Loaded="Window_Loaded"
     Title="WritePad" Height="450" Width="800" BorderBrush="#007ACC">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
-        <avalonedit:TextEditor x:Name="Editor" FontFamily="Consolas" FontSize="13" Foreground="#E6E6E6" Background="#1E1E1E" ShowLineNumbers="True" Grid.Row="0"></avalonedit:TextEditor>
-        <StatusBar Background="#007ACC" Foreground="White" Grid.Row="1">
-            <TextBlock x:Name="TextBlockStatus" Text="" TextWrapping="NoWrap"></TextBlock>
+        <avalonedit:TextEditor x:Name="Editor" Grid.Row="0"
+                               KeyUp="Editor_KeyUp"
+                               FontFamily="Consolas" FontSize="13" 
+                               Foreground="#E6E6E6" Background="#1E1E1E" ShowLineNumbers="True"></avalonedit:TextEditor>
+        <StatusBar Background="#007ACC" Foreground="White" Grid.Row="1" HorizontalContentAlignment="Stretch">
+            <StatusBarItem x:Name="StatusBarLeft" Content=""></StatusBarItem>
+            <StatusBarItem x:Name="StatusBarRight" HorizontalAlignment="Right" Content=""></StatusBarItem>
         </StatusBar>
     </Grid>
 </Window>

@@ -24,5 +24,20 @@ namespace WritePad
         {
             InitializeComponent();
         }
+
+        private void UpdateStatusBarCharacterLength()
+        {
+            StatusBarRight.Content = $"Characters: {Editor.Text.Length}";
+        }
+
+        private void Editor_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.UpdateStatusBarCharacterLength();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.UpdateStatusBarCharacterLength();
+        }
     }
 }
