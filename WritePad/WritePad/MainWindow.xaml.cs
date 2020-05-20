@@ -175,5 +175,29 @@ namespace WritePad
         {
             this.Editor.Delete();
         }
+
+        private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(Editor.Text))
+            {
+                e.Cancel = true;
+
+                var dlg = new ContentDialog
+                {
+                    Content = "Do you want to save your document?",
+                    PrimaryButtonText = "Save",
+                    SecondaryButtonText = "Don't Save"
+                };
+
+                var result = await dlg.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    this.MenuSave_Click(sender, null);
+                }
+            }
+
+            Environment.Exit(0);
+        }
     }
 }

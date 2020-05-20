@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WritePad"
         mc:Ignorable="d" xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         ui:TitleBar.Background="#1B1B1B"
-        ui:WindowHelper.UseModernWindowStyle="True"
+        ui:WindowHelper.UseModernWindowStyle="True" Closing="Window_Closing"
         Loaded="Window_Loaded"
     Title="WritePad" Height="450" Width="800" BorderBrush="#007ACC">
     <Grid>
