@@ -15,7 +15,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0" Background="#171717" BorderBrush="Gray" BorderThickness="0,1,0,1">
+        <Menu x:Name="MenuMain" Grid.Row="0" Background="#171717" BorderBrush="Gray" BorderThickness="0,1,0,1">
             <MenuItem Header="_File">
                 <MenuItem x:Name="MenuNew" Header="New" Click="MenuNew_Click">
                     <MenuItem.Icon>
@@ -67,6 +67,19 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Theme">
+                <MenuItem x:Name="MenuLightTheme" Header="Light Theme" Click="MenuLightTheme_Click" IsChecked="False" IsCheckable="True">
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xE706;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuDarkTheme" Header="Dark Theme" Click="MenuDarkTheme_Click" IsChecked="True" IsCheckable="True">
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xE708;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
         </Menu>
         <avalonedit:TextEditor x:Name="Editor" Grid.Row="1"
                                KeyUp="Editor_KeyUp"

@@ -4,6 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Description>A simple text editor.</Description>
+    <Authors>Isaac Pell</Authors>
+    <Company>None</Company>
+    <Copyright>2020</Copyright>
+    <RepositoryUrl>https://github.com/MightyIke/WritePad</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/MightyIke/WritePad</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

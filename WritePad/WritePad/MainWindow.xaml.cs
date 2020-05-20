@@ -1,4 +1,5 @@
-﻿using ModernWpf.Controls;
+﻿using ModernWpf;
+using ModernWpf.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace WritePad
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string Version = "0.1 Prerelease";
+        private readonly string Version = "Version 1.0";
         public string FileName { get; set; } = "Untitled.txt";
         public MainWindow()
         {
@@ -199,5 +200,41 @@ namespace WritePad
 
             Environment.Exit(0);
         }
+
+        /// <summary>
+        /// Converts a hex color into a SolidColorBrush that WPF can use.
+        /// </summary>
+        /// <param name="hexCode"></param>
+        public SolidColorBrush ToSolidColorBrush(string hexCode)
+        {
+            return (SolidColorBrush)new BrushConverter().ConvertFromString(hexCode);
+        }
+
+        private void MenuLightTheme_Click(object sender, RoutedEventArgs e)
+        {
+            ModernWpf.ThemeManager.SetRequestedTheme(this, ElementTheme.Light);
+            MenuMain.Background = Brushes.White;
+            MenuMain.Foreground = Brushes.Black;
+            TitleBar.SetBackground(this, Brushes.GhostWhite);
+            Editor.Background = Brushes.LightGray;
+            Editor.Foreground = Brushes.Black;
+
+            MenuDarkTheme.IsChecked = false;
+            MenuLightTheme.IsChecked = true;
+        }
+
+        private void MenuDarkTheme_Click(object sender, RoutedEventArgs e)
+        {
+            ModernWpf.ThemeManager.SetRequestedTheme(this, ElementTheme.Dark);
+            MenuMain.Background = ToSolidColorBrush("#171717");
+            MenuMain.Foreground = Brushes.White;
+            TitleBar.SetBackground(this, ToSolidColorBrush("#1B1B1B"));
+            Editor.Background = ToSolidColorBrush("#1E1E1E");
+            Editor.Foreground = ToSolidColorBrush("#E6E6E6");
+
+            MenuDarkTheme.IsChecked = true;
+            MenuLightTheme.IsChecked = false;
+        }
+
     }
 }
