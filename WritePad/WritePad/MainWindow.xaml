@@ -17,13 +17,33 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Background="#171717" BorderBrush="Gray" BorderThickness="0,1,0,1">
             <MenuItem Header="_File">
-                <MenuItem x:Name="MenuNew" Header="New" Click="MenuNew_Click"></MenuItem>
-                <MenuItem x:Name="MenuOpenFile" Header="Open File" Click="MenuItemOpenFile_Click"></MenuItem>
+                <MenuItem x:Name="MenuNew" Header="New" Click="MenuNew_Click">
+                    <MenuItem.Icon>
+                        <ui:SymbolIcon Symbol="Page2" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuOpenFile" Header="Open File" Click="MenuItemOpenFile_Click">
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xED25;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator></Separator>
-                <MenuItem x:Name="MenuSave" Header="Save" Click="MenuSave_Click"></MenuItem>
-                <MenuItem x:Name="MenuSaveAs" Header="Save as" Click="MenuSaveAs_Click" ></MenuItem>
+                <MenuItem x:Name="MenuSave" Header="Save" Click="MenuSave_Click">
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xE74E;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuSaveAs" Header="Save as" Click="MenuSaveAs_Click" >
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xE74E;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator></Separator>
-            <MenuItem x:Name="MenuExit" Header="Exit" Click="MenuExit_Click"></MenuItem>
+            <MenuItem x:Name="MenuExit" Header="Exit" Click="MenuExit_Click">
+                    <MenuItem.Icon>
+                        <ui:SymbolIcon Symbol="Forward"></ui:SymbolIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <avalonedit:TextEditor x:Name="Editor" Grid.Row="1"
