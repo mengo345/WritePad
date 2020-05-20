@@ -17,6 +17,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Background="#171717" BorderBrush="Gray" BorderThickness="0,1,0,1">
             <MenuItem Header="_File">
+                <MenuItem x:Name="MenuNew" Header="New" Click="MenuNew_Click"></MenuItem>
                 <MenuItem x:Name="MenuOpenFile" Header="Open File" Click="MenuItemOpenFile_Click"></MenuItem>
                 <Separator></Separator>
                 <MenuItem x:Name="MenuSave" Header="Save" Click="MenuSave_Click"></MenuItem>

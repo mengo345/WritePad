@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModernWpf.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace WritePad
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.UpdateStatusBarCharacterLength();
-            StatusBarLeft.Content = $"Version: {this.Version}";
+            StatusBarLeft.Content = $"No file saved.";
             this.SetTitle("Untitled");
         }
         private void SetTitle(string text)
@@ -113,6 +114,31 @@ namespace WritePad
 
             // Write the text to the previously saved file.
             System.IO.File.WriteAllText(this.FileName, Editor.Text);
+        }
+
+        private async void MenuNew_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(Editor.Text))
+            {
+                var dlg = new ContentDialog
+                {
+                    Content = "Do you want to save your document?",
+                    PrimaryButtonText = "Save",
+                    SecondaryButtonText = "Don't Save"
+                };
+
+                var result = await dlg.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    this.MenuSave_Click(sender, e);
+                }
+            }
+
+            Editor.Text = "";
+            this.FileName = "Untitled.txt";
+            SetTitle(this.FileName);
+            this.StatusBarLeft.Content = "No file saved.";
         }
     }
 }
