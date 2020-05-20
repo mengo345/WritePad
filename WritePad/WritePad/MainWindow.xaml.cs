@@ -21,6 +21,7 @@ namespace WritePad
     public partial class MainWindow : Window
     {
         private readonly string Version = "0.1 Prerelease";
+        public string FileName { get; set; } = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +41,18 @@ namespace WritePad
         {
             this.UpdateStatusBarCharacterLength();
             StatusBarLeft.Content = $"Version: {this.Version}";
+            this.SetTitle("Untitled");
+        }
+        private void SetTitle(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                this.Title = $"WritePad {Version}";
+            }
+            else
+            {
+                this.Title = $"WritePad {Version} - {text}";
+            }
         }
 
         private void MenuItemOpenFile_Click(object sender, RoutedEventArgs e)
@@ -58,6 +71,9 @@ namespace WritePad
             }
 
             Editor.Text = System.IO.File.ReadAllText(dialog.FileName);
+            this.FileName = dialog.FileName;
+            this.SetTitle(Argus.IO.FileSystemUtilities.ExtractFileName(dialog.FileName));
+            this.StatusBarLeft.Content = dialog.FileName;
         }
 
         private void MenuSaveAs_Click(object sender, RoutedEventArgs e)
