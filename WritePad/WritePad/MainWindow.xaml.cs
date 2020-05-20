@@ -155,5 +155,25 @@ namespace WritePad
             SetTitle(this.FileName);
             this.StatusBarLeft.Content = "No file saved.";
         }
+
+        private void MenuCut_Click(object sender, RoutedEventArgs e)
+        {
+            this.Editor.Cut();
+        }
+
+        private void MenuCopy_Click(object sender, RoutedEventArgs e)
+        {
+            this.Editor.Copy();
+        }
+
+        private void MenuPaste_Click(object sender, RoutedEventArgs e)
+        {
+            this.Editor.Paste();
+        }
+
+        private void MenuDelete_Click(object sender, RoutedEventArgs e)
+        {
+            this.Editor.Delete();
+        }
     }
 }

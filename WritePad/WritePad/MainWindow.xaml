@@ -39,9 +39,31 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator></Separator>
-            <MenuItem x:Name="MenuExit" Header="Exit" Click="MenuExit_Click">
+                <MenuItem x:Name="MenuExit" Header="Exit" Click="MenuExit_Click">
                     <MenuItem.Icon>
                         <ui:SymbolIcon Symbol="Forward"></ui:SymbolIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem x:Name="MenuCut" Header="Cut" Click="MenuCut_Click">
+                    <MenuItem.Icon>
+                        <ui:SymbolIcon Symbol="Cut"></ui:SymbolIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuCopy" Header="Copy" Click="MenuCopy_Click">
+                    <MenuItem.Icon>
+                        <ui:SymbolIcon Symbol="Copy"></ui:SymbolIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuPaste" Header="Paste" Click="MenuPaste_Click">
+                    <MenuItem.Icon>
+                        <ui:SymbolIcon Symbol="Paste"></ui:SymbolIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuDelete" Header="Delete" Click="MenuDelete_Click">
+                    <MenuItem.Icon>
+                        <ui:SymbolIcon Symbol="Delete" Foreground="#F3816A" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
