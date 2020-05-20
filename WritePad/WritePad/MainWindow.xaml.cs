@@ -20,6 +20,7 @@ namespace WritePad
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly string Version = "0.1 Prerelease";
         public MainWindow()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace WritePad
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.UpdateStatusBarCharacterLength();
+            StatusBarLeft.Content = $"Version: {this.Version}";
         }
     }
 }
