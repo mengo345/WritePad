@@ -9,6 +9,6 @@
         ui:WindowHelper.UseModernWindowStyle="True"
     Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <avalonedit:TextEditor FontFamily="Consolas" FontSize="13" Foreground="#E6E6E6" Background="#1E1E1E"></avalonedit:TextEditor>
+        <avalonedit:TextEditor x:Name="Editor" FontFamily="Consolas" FontSize="13" Foreground="#E6E6E6" Background="#1E1E1E" ShowLineNumbers="True"></avalonedit:TextEditor>
     </Grid>
 </Window>
