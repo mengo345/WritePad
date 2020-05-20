@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WritePad"
-        mc:Ignorable="d" xmlns:ui="http://schemas.modernwpf.com/2019"
+        mc:Ignorable="d" xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         ui:TitleBar.Background="#1B1B1B"
         ui:WindowHelper.UseModernWindowStyle="True"
     Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <avalonedit:TextEditor FontFamily="Consolas" FontSize="13" Foreground="#E6E6E6" Background="#1E1E1E"></avalonedit:TextEditor>
     </Grid>
 </Window>
