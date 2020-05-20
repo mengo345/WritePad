@@ -92,5 +92,10 @@ namespace WritePad
             }
             System.IO.File.WriteAllText(dialog.FileName, Editor.Text);
         }
+
+        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
