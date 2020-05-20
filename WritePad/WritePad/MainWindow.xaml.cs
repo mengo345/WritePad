@@ -42,9 +42,9 @@ namespace WritePad
             StatusBarLeft.Content = $"Version: {this.Version}";
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MenuItemOpenFile_Click(object sender, RoutedEventArgs e)
         {
-           //This Code Opens a File
+            //This Code Opens a File
             var dialog = new System.Windows.Forms.OpenFileDialog();
             dialog.Title = "Open File";
             dialog.CheckFileExists = true;
@@ -52,11 +52,29 @@ namespace WritePad
             dialog.Multiselect = false;
             var result = dialog.ShowDialog();
 
-            if (result ==  System.Windows.Forms.DialogResult.Cancel)
+            if (result == System.Windows.Forms.DialogResult.Cancel)
             {
                 return;
             }
-            Editor.Text= System.IO.File.ReadAllText(dialog.FileName);
+
+            Editor.Text = System.IO.File.ReadAllText(dialog.FileName);
+        }
+
+        private void MenuSaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            //This Code Saves a File
+            var dialog = new System.Windows.Forms.SaveFileDialog();
+            dialog.Title = "Save As";
+            dialog.OverwritePrompt = true;
+            dialog.Filter = ".txt|.txt|.|.";
+
+            var result = dialog.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            {
+                return;
+            }
+            System.IO.File.WriteAllText(dialog.FileName, Editor.Text);
         }
     }
 }
