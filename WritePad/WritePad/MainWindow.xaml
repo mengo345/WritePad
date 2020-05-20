@@ -11,14 +11,20 @@
     Title="WritePad" Height="450" Width="800" BorderBrush="#007ACC">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
-        <avalonedit:TextEditor x:Name="Editor" Grid.Row="0"
+        <Menu Grid.Row="0" Background="#171717" BorderBrush="Gray" BorderThickness="0,1,0,1">
+            <MenuItem Header="_File">
+                <MenuItem Header="Open File" Click="MenuItem_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <avalonedit:TextEditor x:Name="Editor" Grid.Row="1"
                                KeyUp="Editor_KeyUp"
                                FontFamily="Consolas" FontSize="13" 
                                Foreground="#E6E6E6" Background="#1E1E1E" ShowLineNumbers="True"></avalonedit:TextEditor>
-        <StatusBar Background="#007ACC" Foreground="White" Grid.Row="1" HorizontalContentAlignment="Stretch">
+        <StatusBar Background="#007ACC" Foreground="White" Grid.Row="2" HorizontalContentAlignment="Stretch">
             <StatusBarItem x:Name="StatusBarLeft" Content=""></StatusBarItem>
             <StatusBarItem x:Name="StatusBarRight" HorizontalAlignment="Right" Content=""></StatusBarItem>
         </StatusBar>

@@ -41,5 +41,22 @@ namespace WritePad
             this.UpdateStatusBarCharacterLength();
             StatusBarLeft.Content = $"Version: {this.Version}";
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+           //This Code Opens a File
+            var dialog = new System.Windows.Forms.OpenFileDialog();
+            dialog.Title = "Open File";
+            dialog.CheckFileExists = true;
+            dialog.Filter = "*.txt|*.txt|*.*|*.*";
+            dialog.Multiselect = false;
+            var result = dialog.ShowDialog();
+
+            if (result ==  System.Windows.Forms.DialogResult.Cancel)
+            {
+                return;
+            }
+            Editor.Text= System.IO.File.ReadAllText(dialog.FileName);
+        }
     }
 }
