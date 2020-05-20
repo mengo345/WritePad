@@ -21,7 +21,7 @@ namespace WritePad
     public partial class MainWindow : Window
     {
         private readonly string Version = "0.1 Prerelease";
-        public string FileName { get; set; } = "";
+        public string FileName { get; set; } = "Untitled.txt";
         public MainWindow()
         {
             InitializeComponent();
@@ -90,12 +90,29 @@ namespace WritePad
             {
                 return;
             }
+
             System.IO.File.WriteAllText(dialog.FileName, Editor.Text);
+            this.FileName = dialog.FileName;
+            this.SetTitle(Argus.IO.FileSystemUtilities.ExtractFileName(dialog.FileName));
+            this.StatusBarLeft.Content = dialog.FileName;
         }
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void MenuSave_Click(object sender, RoutedEventArgs e)
+        {
+            // If they haven't saved, they need a save dialog.  Otherwise, we'll save.
+            if (string.IsNullOrWhiteSpace(this.FileName) || string.Equals(this.FileName, "untitled.txt", StringComparison.OrdinalIgnoreCase))
+            {
+                MenuSaveAs_Click(sender, e);
+                return;
+            }
+
+            // Write the text to the previously saved file.
+            System.IO.File.WriteAllText(this.FileName, Editor.Text);
         }
     }
 }

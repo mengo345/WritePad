@@ -19,8 +19,10 @@
             <MenuItem Header="_File">
                 <MenuItem x:Name="MenuOpenFile" Header="Open File" Click="MenuItemOpenFile_Click"></MenuItem>
                 <Separator></Separator>
+                <MenuItem x:Name="MenuSave" Header="Save" Click="MenuSave_Click"></MenuItem>
                 <MenuItem x:Name="MenuSaveAs" Header="Save as" Click="MenuSaveAs_Click" ></MenuItem>
-                <MenuItem x:Name="MenuExit" Header="Exit" Click="MenuExit_Click"></MenuItem>
+                <Separator></Separator>
+            <MenuItem x:Name="MenuExit" Header="Exit" Click="MenuExit_Click"></MenuItem>
             </MenuItem>
         </Menu>
         <avalonedit:TextEditor x:Name="Editor" Grid.Row="1"
