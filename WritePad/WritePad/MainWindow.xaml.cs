@@ -98,8 +98,23 @@ namespace WritePad
             this.StatusBarLeft.Content = dialog.FileName;
         }
 
-        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        private async void MenuExit_Click(object sender, RoutedEventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(Editor.Text))
+            {
+                var dlg = new ContentDialog
+                {
+                    Content = "Do you want to save your document?",
+                    PrimaryButtonText = "Save",
+                    SecondaryButtonText = "Don't Save"
+                };
+                var result = await dlg.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    this.MenuSave_Click(sender, e);
+                }
+            }
             Environment.Exit(0);
         }
 
