@@ -18,6 +18,7 @@
   <ItemGroup>
     <PackageReference Include="Argus.Core" Version="2021.8.16.1" />
     <PackageReference Include="AvalonEdit" Version="6.1.2.30" />
+    <PackageReference Include="MahApps.Metro.IconPacks.BootstrapIcons" Version="4.8.0" />
     <PackageReference Include="ModernWpfUI" Version="0.9.4" />
   </ItemGroup>
 

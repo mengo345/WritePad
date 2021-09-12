@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WritePad"
         mc:Ignorable="d" xmlns:ui="http://schemas.modernwpf.com/2019" xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         ui:TitleBar.Background="#1B1B1B"
         ui:WindowHelper.UseModernWindowStyle="True" Closing="Window_Closing"
         Loaded="Window_Loaded"
@@ -89,9 +90,16 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Zoom">
-                    <MenuItem x:Name="MenuZoomIn" Header="Zoom In" Click="MenuZoomIn_OnClick" IsChecked="False" IsCheckable="False" />
-                    <MenuItem x:Name="MenuZoomOut" Header="Zoom Out" Click="MenuZoomOut_OnClick" IsChecked="False" IsCheckable="False" />
-
+                    <MenuItem x:Name="MenuZoomIn" Header="Zoom In" Click="MenuZoomIn_OnClick" IsChecked="False" IsCheckable="False">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconBootstrapIcons Kind="ZoomIn" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="MenuZoomOut" Header="Zoom Out" Click="MenuZoomOut_OnClick" IsChecked="False" IsCheckable="False">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconBootstrapIcons Kind="ZoomOut" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </MenuItem>
         </Menu>
