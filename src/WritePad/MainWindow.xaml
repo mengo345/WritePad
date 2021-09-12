@@ -9,6 +9,14 @@
         ui:WindowHelper.UseModernWindowStyle="True" Closing="Window_Closing"
         Loaded="Window_Loaded"
     Title="WritePad" Height="450" Width="800" BorderBrush="#007ACC">
+    <Window.CommandBindings>
+        <CommandBinding Command="Zoom" Executed="MenuZoomIn_OnClick" />
+        <CommandBinding Command="DecreaseZoom" Executed="MenuZoomOut_OnClick" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="OemPlus" Modifiers="Control" Command="Zoom" />
+        <KeyBinding Key="OemMinus" Modifiers="Control" Command="DecreaseZoom" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -80,9 +88,12 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="Zoom">
+                    <MenuItem x:Name="MenuZoomIn" Header="Zoom In" Click="MenuZoomIn_OnClick" IsChecked="False" IsCheckable="False" />
+                    <MenuItem x:Name="MenuZoomOut" Header="Zoom Out" Click="MenuZoomOut_OnClick" IsChecked="False" IsCheckable="False" />
 
+                </MenuItem>
             </MenuItem>
-            
         </Menu>
         <avalonedit:TextEditor x:Name="Editor" Grid.Row="1"
                                KeyUp="Editor_KeyUp"

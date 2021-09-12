@@ -236,5 +236,20 @@ namespace WritePad
             MenuLightTheme.IsChecked = false;
         }
 
+        private void MenuZoomIn_OnClick(object sender, RoutedEventArgs e)
+        {
+            Editor.FontSize++;
+        }
+
+        private void MenuZoomOut_OnClick(object sender, RoutedEventArgs e)
+        {
+            // We're not going to allow fonts smaller than size 6.
+            if (Editor.FontSize < 6)
+            {
+                return;
+            }
+
+            Editor.FontSize--;
+        }
     }
 }
