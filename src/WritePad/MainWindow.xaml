@@ -23,7 +23,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
-        <Menu x:Name="MenuMain" Grid.Row="0" Background="#171717" BorderBrush="Gray" BorderThickness="0,1,0,1">
+        <Menu x:Name="MenuMain" Grid.Row="0" Background="#171717" BorderBrush="Gray" BorderThickness="0,.9,0,.9">
             <MenuItem Header="_File">
                 <MenuItem x:Name="MenuNew" Header="New" Click="MenuNew_Click">
                     <MenuItem.Icon>
